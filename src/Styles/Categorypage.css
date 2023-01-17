@@ -1,0 +1,17 @@
+.product_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: space-around;
+    /* align-items: center; */
+    margin: auto;
+    padding: 40px;
+    cursor: pointer;
+}
+.product_list h1{
+    padding-left: 8%;
+}
+.product_links{
+    text-decoration: none;
+}

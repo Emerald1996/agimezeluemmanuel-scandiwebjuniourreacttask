@@ -1,0 +1,30 @@
+.currency_display{
+    position: relative;
+    width: 30%;
+}
+.currency_display>p{
+    cursor: pointer;
+}
+.currencies{
+    display: block;
+    position: fixed;
+    top: 10%;
+    right: 35%;
+    box-shadow: 0 0 5px lightgray;
+    z-index: 1000;
+    background-color: white;
+}
+.symbol__label{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+.symbol__label>p{
+    text-align: center;
+}
+.symbol__label:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
