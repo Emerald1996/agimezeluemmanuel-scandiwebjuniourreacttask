@@ -55,14 +55,6 @@ const cartSlice = createSlice({
       state.cartItemIds = [];
     },
 
-    // attributes
-    handleAttribute(state, action) {
-      let cartItem = state.cart.find((item) => item.id === action.payload.id);
-      cartItem.selected = { ...cartItem.selected, ...action.payload.newAttr };
-
-      state.cart = [...state.cart];
-    },
-
     // Currency update
     setCurrency(state, action) {
       if (state.currentCurrency) {

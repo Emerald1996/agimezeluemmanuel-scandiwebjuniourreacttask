@@ -4,6 +4,7 @@ import "../Styles/ProductListItems.css"
 import cartImage from "../Assets/cart.svg"
 import { addItemToCart } from '../Redux/cartSlice';
 import { v4 as uuid } from "uuid";
+import { Link } from 'react-router-dom';
 
 export class ProductListItems extends Component {
   addProductToCart( id,product) {
@@ -11,7 +12,7 @@ export class ProductListItems extends Component {
     alert(`${product.name.toUpperCase()} added to cart successfully`)
   }
   render() {
-    const { product, cartItemIds, currentCurrency } = this.props
+    const { product, cartItemIds, currentCurrency, category } = this.props
     const uid = uuid()
     // Label products that is out of stock
     const availabilityStock = product.inStock ? "item_list" : 'no_item' // Check css properties
@@ -27,16 +28,22 @@ export class ProductListItems extends Component {
         <div className={availabilityStock} key={id}>
           <div className="product_display">
             <div className="products">
-              <img src={gallery[0]} 
-                alt={name} 
-                title={name} 
-                width="350px" 
-                height="200px"
-              />
+              <Link to={`/${category?.name}/${product.id}`} key={product.id} className="product_image_link">
+                <img src={gallery[0]} 
+                  alt={name} 
+                  title={name} 
+                  width="350px" 
+                  height="200px"
+                />             
+              </Link>
 
               {!inStock && (
                 <p className={noStock}>Out of stock</p>
               )}
+              <div className='product_tag'>
+                  <h3>{brand} {name}</h3>
+                  <p>{currentCurrency} {price.amount}</p>
+                </div>
               {
                 inStock && (
                   <div className="category_cart_btn" 
@@ -54,10 +61,6 @@ export class ProductListItems extends Component {
                   </div>
                 )
               }
-              <div className='product_tag'>
-                  <h3>{brand} {name}</h3>
-                  <p>{currentCurrency} {price.amount}</p>
-                </div>
             </div>
           </div>
         </div>

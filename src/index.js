@@ -12,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 
 export const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: "https://scandiweb-server-c53i.onrender.com/",
   cache: new InMemoryCache(),
 });
 

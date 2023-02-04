@@ -3,7 +3,6 @@ import FETCH_PRODUCTS from "../GraphqlQueryStore/productList"
 import { graphql } from '@apollo/client/react/hoc'
 import ProductListItem from "../Components/ProductListItems"
 import "../Styles/Categorypage.css"
-import { Link } from 'react-router-dom'
 
 export class Categorypage extends Component {
 
@@ -29,10 +28,7 @@ export class Categorypage extends Component {
           {
             category?.products?.map((product) => {
               return (
-                
-                <Link  to={`/${category?.name}/${product.id}`} key={product.id} className="product_links">
-                  <ProductListItem product={product} />
-                </Link>
+                  <ProductListItem product={product} category={category}/>
               )
             })
           }

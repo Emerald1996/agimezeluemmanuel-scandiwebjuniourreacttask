@@ -43,14 +43,14 @@
     display: none;
 }
 .products:hover .category_cart_btn{
-    z-index: 1000;
+    z-index: 999;
     display: block;
 }
 .category_cart_btn:hover{
     background: #36884c;
 }
 
-.products>img {
+.products .product_image_link>img {
     object-fit: contain;
     text-align: left;
 }
@@ -63,10 +63,6 @@
     text-decoration: none;
 }
 
-.attribute-list {
-    display: none;
-
-}
 
 .products:hover .attribute-list {
     display: block;
