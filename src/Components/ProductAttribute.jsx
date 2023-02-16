@@ -18,9 +18,9 @@ export class ProductAttribute extends Component {
   componentDidMount() {
     document.title = "product || add to cart"
     if(this.props.product) {
-      let product = this.props.cart.find(
+      let product = this.props.cart?.find(
       (item) =>  {
-       return item.id === this.props.product.id
+       return item.id === this.props.product?.id
       })
 
       this.setState({
