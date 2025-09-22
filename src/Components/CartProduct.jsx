@@ -62,7 +62,7 @@ export class CartProduct extends Component {
     return (
       <div className='minicart_info'>
         <div className="minicart_item_info">
-          <button onClick={ ()=>this.props.removeItemFromCart(id,alert(`${name.toUpperCase()} has been removed from cart successfully`))}>X</button>
+          <button onClick={ ()=>this.props.removeItemFromCart(id)}>❌</button>
           <Link to={`/${category}/${productId}`} className='product_name_navigate'>
             <h2>{brand}</h2>
             <h3>{name}</h3>

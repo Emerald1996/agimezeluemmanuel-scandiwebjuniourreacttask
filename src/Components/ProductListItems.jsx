@@ -5,11 +5,24 @@ import cartImage from "../Assets/cart.svg"
 import { addItemToCart } from '../Redux/cartSlice';
 import { v4 as uuid } from "uuid";
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class ProductListItems extends Component {
   addProductToCart( id,product) {
     this.props.addItemToCart(product)
-    alert(`${product.name.toUpperCase()} added to cart successfully`)
+    // alert(`${product.name.toUpperCase()} added to cart successfully`)
+    // toast.success(`${product.name.toUpperCase()} added to cart successfully`, {
+    //       position: "top-center",
+    //       autoClose: 5000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: false,
+    //       draggable: true,
+    //       progress: undefined,
+    //       theme: "light",
+    
+    //     });
   }
   render() {
     const { product, cartItemIds, currentCurrency, category } = this.props
@@ -44,7 +57,7 @@ export class ProductListItems extends Component {
                   <h3>{brand} {name}</h3>
                   <p>{currentCurrency} {price.amount}</p>
                 </div>
-              {
+              {/* {
                 inStock && (
                   <div className="category_cart_btn" 
                     onClick={() => this.addProductToCart(product.id + uid, {
@@ -58,9 +71,10 @@ export class ProductListItems extends Component {
                   )}
                   >
                     <img src={cartImage} alt="addToCartbutton" className='image_color'/>
+                    <ToastContainer />
                   </div>
                 )
-              }
+              } */}
             </div>
           </div>
         </div>

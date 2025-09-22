@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   cart: [],
@@ -18,6 +20,17 @@ const cartSlice = createSlice({
       state.cartQuantity = state.cartQuantity + 1;
       state.totalQuantity = state.totalQuantity + action.payload.quantity;
       state.cartItemIds = [...state.cartItemIds, action.payload.id];
+      toast.success('Item added to cart successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+    
+        });
     },
 
     // Remove item from cart
@@ -29,6 +42,17 @@ const cartSlice = createSlice({
         (item) => item !== action.payload
         );
       state.totalQuantity = state.totalQuantity - itemRemoved?.quantity;
+        toast.error('Item removed from cart successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+    
+        });
     },
 
     // Item count

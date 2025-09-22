@@ -5,6 +5,10 @@ import {addItemToCart} from "../Redux/cartSlice"
 import { v4 as uuid } from "uuid";
 import "../Styles/ProductAttribute.css"
 import { ButtonSizes, SelectedColor, AttributeSizes } from '../Styles/attributeStyle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export class ProductAttribute extends Component {
   constructor() {
@@ -44,7 +48,8 @@ export class ProductAttribute extends Component {
 
   addProductToCart( id,product) {
     this.props.addItemToCart(product)
-    alert(`${product.name.toUpperCase()} added to cart successfully`)
+    // alert(`${product.name.toUpperCase()} added to cart successfully`)
+    
   }
 
   handleAttribute(selectedAttribute) {
@@ -145,6 +150,7 @@ export class ProductAttribute extends Component {
             </button> :
              <button disabled className='noStockBtn'>Out of stock</button>
           }
+          <ToastContainer />
         </div>
 
         <div className="desc">
